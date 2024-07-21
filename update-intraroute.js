@@ -74,7 +74,7 @@ async function updateDataForOneMode(mode) {
         class AdjStop {
             constructor(id, weight, routes) {
                 this.id = id;
-                this.weight = weight;
+                this.weight = Number(weight);
                 this.routes = routes;
             }
         }
