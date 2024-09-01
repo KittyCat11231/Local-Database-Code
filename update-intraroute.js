@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const { MongoClient } = require('mongodb');
-const url = require('./atlas_uri');
+const uri = require('./atlas_uri');
 
 const { google } = require('googleapis');
 
@@ -275,11 +275,11 @@ async function updateDataForOneMode(mode) {
         let dbStopsCollection = client.db(dbname).collection(dbStopsCollectionName);
         let dbRoutesCollection = client.db(dbname).collection(dbRoutesCollectionName);
 
-        dbStopsCollection.drop();
-        dbRoutesCollection.drop();
+        await dbStopsCollection.drop();
+        await dbRoutesCollection.drop();
 
-        dbStopsCollection.insertMany(allStops);
-        dbRoutesCollection.insertMany(allRoutes);
+        await dbStopsCollection.insertMany(allStops);
+        await dbRoutesCollection.insertMany(allRoutes);
 
         console.log(`Added ${mode} data to the database.`)
 
@@ -290,14 +290,14 @@ async function updateDataForOneMode(mode) {
 
 async function updateFromSheets() {
     try {
-        updateDataForOneMode('bahn');
-        updateDataForOneMode('air');
-        updateDataForOneMode('rail');
-        updateDataForOneMode('sail');
-        updateDataForOneMode('bus');
-        updateDataForOneMode('omega');
-        updateDataForOneMode('railScar');
-        updateDataForOneMode('railLumeva');
+        await updateDataForOneMode('bahn');
+        await updateDataForOneMode('air');
+        await updateDataForOneMode('rail');
+        await updateDataForOneMode('sail');
+        await updateDataForOneMode('bus');
+        await updateDataForOneMode('omega');
+        await updateDataForOneMode('railScar');
+        await updateDataForOneMode('railLumeva');
     } catch (error) {
         console.error(error);
     }
