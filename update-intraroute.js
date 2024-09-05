@@ -204,6 +204,7 @@ async function updateDataForOneMode(mode) {
                 if (id.includes('to')) {
                     id = id.split('to')[0];
                 }
+                num = row[1];
                 type = row[3];
                 for (let i = 5; i < row.length; i += 2) {
                     codeshares.push(row[i]);
