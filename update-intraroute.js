@@ -126,13 +126,22 @@ async function updateDataForOneMode(mode) {
             let thisStopId = row[2];
             let city = row[0];
             let stopName = row[1];
+            if (stopName === 'null') {
+                stopName = null;
+            }
             let code = row[3];
             let routeId = row[4];
             if (routeId.includes('to')) {
                 routeId = routeId.split('to')[0];
             }
             let meta1 = row[5];
+            if (meta1 === 'null') {
+                meta1 = null;
+            }
             let meta2 = row[6];
+            if (meta2 === 'null') {
+                meta2 = null;
+            }
             let keywords = [];
             for (let i = 7; i < row.length; i++) {
                 keywords.push(row[i]);
