@@ -165,7 +165,7 @@ async function updateDataForOneMode(mode) {
         })
 
         class Route {
-            constructor(id, mode, type, bullet, num, altText, routeName, destinationId, destinationCity, destinationStopName, useFullNameIn, codeshares) {
+            constructor(id, mode, type, bullet, num, altText, routeName, destinationId, destinationCity, destinationStopName, useFullNameIn, codeshares, stops) {
                 this.id = id;
                 this.mode = mode;
                 this.type = type;
@@ -178,6 +178,7 @@ async function updateDataForOneMode(mode) {
                 this.destinationStopName = destinationStopName;
                 this.useFullNameIn = useFullNameIn;
                 this.codeshares = codeshares;
+                this.stops = stops;
             }
         }
 
